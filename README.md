@@ -10,8 +10,8 @@ Step 1: Create a resource group an Azure managed disk:-
   $rgName = 'az104-03c-rg1'
   echo $rgname (save the location)
 
--New-AzResourceGroup -Name $rgName -Location $location
--Get-AzResourceGroup -Name $rgName (verify the resource group name)
+**New-AzResourceGroup -Name $rgName -Location $location
+**Get-AzResourceGroup -Name $rgName (verify the resource group name)
 
 1) To create a newly managed disk:-
 2) $diskConfig = New-AzDiskConfig `
