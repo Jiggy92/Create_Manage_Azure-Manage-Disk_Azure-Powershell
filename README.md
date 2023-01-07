@@ -32,7 +32,11 @@
 2) Configure the managed disk by Azure Powershell:-
 
 *New-AzDiskUpdateConfig -DiskSizeGB 64 | Update-AzDisk -ResourceGroupName $rgName -Diskname $diskName
+
 *Get-AzDisk -ResourceGroupName $rgName -Name $diskName
+
 *(Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
+
 *New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+
 *(Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
