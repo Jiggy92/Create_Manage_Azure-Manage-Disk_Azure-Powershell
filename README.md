@@ -40,3 +40,6 @@
 *New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 
 *(Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
+
+
+
