@@ -3,7 +3,9 @@
 Step 1: Create a resource group an Azure managed disk:-
 
 -Get-AzResourceGroup -Name az104-03a-rg1
+
 -$location = (Get-AzResourceGroup -Name az104-03a-rg1).Location
+
 -echo $location (save the location)
 
 **Create new resource group name:-
