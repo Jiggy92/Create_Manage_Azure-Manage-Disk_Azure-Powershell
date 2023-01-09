@@ -2,8 +2,8 @@
 
 _Step 1: Create a resource group an Azure managed disk using powershell:-_
     
-      # fetching details of previously created resource group az104-03a-rg1
-     _ Get-AzResourceGroup -Name az104-03a-rg1_
+ fetching details of previously created resource group az104-03a-rg1
+ Get-AzResourceGroup -Name az104-03a-rg1
 
       # creating variable name location and assigning it location used for az104-03a-rg1
       _$location = (Get-AzResourceGroup -Name az104-03a-rg1).Location_   
