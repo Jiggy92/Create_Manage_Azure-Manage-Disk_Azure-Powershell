@@ -1,45 +1,45 @@
 # Create_Manage_Azure-Manage-Disk_Azure-Powershell
-
-_Step 1: Create a resource group an Azure managed disk using powershell:-_
+**
+Step 1: Create a resource group an Azure managed disk using powershell:-**
     
- fetching details of previously created resource group az104-03a-rg1
- Get-AzResourceGroup -Name az104-03a-rg1
+      #fetching details of previously created resource group az104-03a-rg1
+      Get-AzResourceGroup -Name az104-03a-rg1
 
-      # creating variable name location and assigning it location used for az104-03a-rg1
-      _$location = (Get-AzResourceGroup -Name az104-03a-rg1).Location_   
+      #creating variable name location and assigning it location used for az104-03a-rg1
+      $location = (Get-AzResourceGroup -Name az104-03a-rg1).Location 
     
-      # display value of location variable
-      _echo $location _
+      #display value of location variable
+      echo $location
       
-      # creating variable name rgname and assigning it a value of new rg name
-      _$rgName = 'az104-03c-rg1'_
+      #creating variable name rgname and assigning it a value of new rg name
+      $rgName = 'az104-03c-rg1'
      
-      # displaying variable rgname value
-      _echo $rgname_
+      #displaying variable rgname value
+      echo $rgname
      
-      # Finally creating a new resource group using 
-       _New-AzResourceGroup -Name $rgName -Location $location_
+      #Finally creating a new resource group using 
+       New-AzResourceGroup -Name $rgName -Location $location
       
-      # Fetching details of newly created resource group
-       _Get-AzResourceGroup -Name $rgName (verify the resource group name)_
+      #Fetching details of newly created resource group
+       Get-AzResourceGroup -Name $rgName (verify the resource group name)
 
 Step 2: To create a newly managed disk:-
 
-      ###### creating a variable name diskconfig for disk configuration
+       #creating a variable name diskconfig for disk configuration
  
-      _$diskConfig = New-AzDiskConfig Location $location CreateOption Empty  DiskSizeGB 32 Sku Standard_LRS_
+       $diskConfig = New-AzDiskConfig Location $location CreateOption Empty  DiskSizeGB 32 Sku Standard_LRS
    
-      ###### creating another variable diskName to keep value of new disk name
+       #creating another variable diskName to keep value of new disk name
  
-      _$diskName = 'az104-03c-disk1'_
+       $diskName = 'az104-03c-disk1'
 
-      #creating new disk using variables rgname,diskName and diskConfig
+       #creating new disk using variables rgname,diskName and diskConfig
  
-      _New-AzDisk -ResourceGroupName $rgName -DiskName $diskName -Disk $diskConfig_
+       New-AzDisk -ResourceGroupName $rgName -DiskName $diskName -Disk $diskConfig
       
-      #fetching details of newly created disk
+       #fetching details of newly created disk
 
-      _Get-AzDisk -ResourceGroupName $rgName -Name $diskName_
+       Get-AzDisk -ResourceGroupName $rgName -Name $diskName
 
 
 Step 3: Configure the managed disk by Azure Powershell:-
