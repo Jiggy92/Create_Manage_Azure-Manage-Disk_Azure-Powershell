@@ -1,6 +1,6 @@
 # Create_Manage_Azure-Manage-Disk_Azure-Powershell
 
-Step 1: Create a resource group an Azure managed disk using powershell:-
+_Step 1: Create a resource group an Azure managed disk using powershell:-_
     
       # fetching details of previously created resource group az104-03a-rg1
      _ Get-AzResourceGroup -Name az104-03a-rg1_
