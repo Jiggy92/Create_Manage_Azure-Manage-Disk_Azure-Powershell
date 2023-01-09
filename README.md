@@ -27,11 +27,11 @@ Step 2: To create a newly managed disk:-
 
       #creating a variable name diskconfig for disk configuration
  
-      *$diskConfig = New-AzDiskConfig Location $location CreateOption Empty  DiskSizeGB 32 Sku Standard_LRS*
+      **$diskConfig = New-AzDiskConfig Location $location CreateOption Empty  DiskSizeGB 32 Sku Standard_LRS
    
       #creating another variable diskName to keep value of new disk name
  
-      *$diskName = 'az104-03c-disk1'*
+      **$diskName = 'az104-03c-disk1'
 
       #creating new disk using variables rgname,diskName and diskConfig
  
