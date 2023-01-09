@@ -15,22 +15,23 @@ Step 1: Create a resource group an Azure managed disk using powershell:-
 **New-AzResourceGroup -Name $rgName -Location $location
 **Get-AzResourceGroup -Name $rgName (verify the resource group name)
 
-1) To create a newly managed disk:-
+Step 1: To create a newly managed disk:-
 
- #creating a variable name diskconfig for disk configuration
+      #creating a variable name diskconfig for disk configuration
  
-   *$diskConfig = New-AzDiskConfig Location $location CreateOption Empty  DiskSizeGB 32 Sku Standard_LRS*
+      *$diskConfig = New-AzDiskConfig Location $location CreateOption Empty  DiskSizeGB 32 Sku Standard_LRS*
    
- #creating another variable diskName to keep value of new disk name
+      #creating another variable diskName to keep value of new disk name
  
-  *$diskName = 'az104-03c-disk1'*
+      *$diskName = 'az104-03c-disk1'*
 
-**New-AzDisk `
- -ResourceGroupName $rgName `
- -DiskName $diskName `
- -Disk $diskConfig
+      #creating new disk using variables rgname,diskName and diskConfig
+ 
+      *New-AzDisk -ResourceGroupName $rgName -DiskName $diskName -Disk $diskConfig*
+      
+      #fetching details of newly created disk
 
-- Get-AzDisk -ResourceGroupName $rgName -Name $diskName
+      *Get-AzDisk -ResourceGroupName $rgName -Name $diskName*
 
 
 Step 2: Configure the managed disk by Azure Powershell:-
