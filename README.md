@@ -1,6 +1,6 @@
 # Create_Manage_Azure-Manage-Disk_Azure-Powershell
 
-## Step 1: Create a resource group an Azure managed disk using powershell:-
+## Step 1: Create a resource group in Azure managed disk using powershell:-
     
       #fetching details of previously created resource group az104-03a-rg1
       Get-AzResourceGroup -Name az104-03a-rg1
@@ -23,7 +23,7 @@
       #Fetching details of newly created resource group
        Get-AzResourceGroup -Name $rgName (verify the resource group name)
 
-Step 2: To create a newly managed disk:-
+## Step 2: To create a newly managed disk:-
 
        #creating a variable name diskconfig for disk configuration
  
@@ -42,17 +42,22 @@ Step 2: To create a newly managed disk:-
        Get-AzDisk -ResourceGroupName $rgName -Name $diskName
 
 
-Step 3: Configure the managed disk by Azure Powershell:-
+## Step 3: Configure the managed disk by Azure Powershell:-
 
-*New-AzDiskUpdateConfig -DiskSizeGB 64 | Update-AzDisk -ResourceGroupName $rgName -Diskname $diskName
+       #Increase the size of Azure Managed disk to 64gb, run the below command
+        New-AzDiskUpdateConfig -DiskSizeGB 64 | Update-AzDisk -ResourceGroupName $rgName -Diskname $diskName
 
-*Get-AzDisk -ResourceGroupName $rgName -Name $diskName
+       #Now verify the changes 
+        Get-AzDisk -ResourceGroupName $rgName -Name $diskName
+        
+       #Verify the SKU as Standard_LRS
+        Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
 
-*(Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
-
-*New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
-
-*(Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
+       #Change the disk performance SKU to Premium_LRS
+        New-AzDiskUpdateConfig -Sku Premium_LRS | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+        
+       #Now Verify the changes again 
+        Get-AzDisk -ResourceGroupName $rgName -Name $diskName).Sku
 
 
 
